@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRIT - Profesjonalny Sprzęt Poleasingowy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #2d6a4f;
+            --light-green: #52b788;
+            --accent-green: #74c69d;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --text-dark: #1b263b;
+            --text-gray: #495057;
+            --border-color: #e9ecef;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--bg-white);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 65px;
+            width: auto;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-green);
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 2px solid var(--border-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-gray);
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .lang-btn.active {
+            background-color: var(--primary-green);
+            color: white;
+            border-color: var(--primary-green);
+        }
+
+        .lang-btn:hover:not(.active) {
+            border-color: var(--light-green);
+            color: var(--primary-green);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            cursor: pointer;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 2rem 6rem;
+            background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-light) 100%);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            text-align: left;
+        }
+
+        .hero-logo-large {
+            margin-bottom: 2rem;
+        }
+
+        .hero-logo-large img {
+            height: 120px;
+            width: auto;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(45, 106, 79, 0.15);
+        }
+
+        .hero-highlight {
+            color: var(--light-green);
+            font-weight: 600;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            text-align: center;
+            max-width: 800px;
+            margin: -2rem auto 3rem;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--bg-light);
+            padding: 3rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-green);
+        }
+
+        .about-content h3 {
+            color: var(--primary-green);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-content p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-with-image {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .services-with-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .service-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+
+        .service-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .about-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-gray);
+            font-size: 1.05rem;
+        }
+
+        .about-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--light-green);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background-color: var(--bg-white);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(45, 106, 79, 0.1);
+            border-color: var(--accent-green);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            color: var(--primary-green);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Services Section */
+        .services-bg {
+            background-color: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .service-item {
+            background-color: var(--bg-white);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--light-green);
+        }
+
+        .service-item h4 {
+            color: var(--primary-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .service-item p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: white;
+            color: var(--primary-green);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Contact Section */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .contact-info-section {
+            background-color: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border-top: 4px solid var(--primary-green);
+        }
+
+        .contact-info-section h3 {
+            color: var(--primary-green);
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .info-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            color: var(--light-green);
+            min-width: 30px;
+        }
+
+        .info-content h4 {
+            color: var(--text-dark);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .info-content a {
+            color: var(--primary-green);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .info-content a:hover {
+            color: var(--light-green);
+        }
+
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .contact-form {
+            background-color: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border-top: 4px solid var(--primary-green);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--light-green);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-note {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-top: 0.3rem;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+            color: white;
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Page Transitions */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .about-with-image,
+            .services-with-images {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-right {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--bg-white);
+                flex-direction: column;
+                padding: 1rem 2rem;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                gap: 1rem;
+            }
+
+            .nav-right.active {
+                display: flex;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-logo-large img {
+                height: 80px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form,
+            .contact-info-section {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showPage('home')">
+                <img src="MRITLOGO.png" alt="MRIT - Profesjonalny Sprzęt IT">
+            </a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <div class="nav-right" id="navRight">
+                <ul class="nav-links">
+                    <li><a href="#" class="active" data-page="home" onclick="showPage('home')" data-lang-key="nav_home"></a></li>
+                    <li><a href="#" data-page="contact" onclick="showPage('contact')" data-lang-key="nav_contact"></a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="pl" onclick="setLanguage('pl')">PL</button>
+                    <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-logo-large">
+                        <img src="MRITLOGO.png" alt="MRIT Logo">
+                    </div>
+                    <h1 data-lang-key="hero_title"></h1>
+                    <p data-lang-key="hero_subtitle"></p>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=800&h=600&fit=crop" alt="Refurbished computers">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section>
+            <div class="container">
+                <h2 class="section-title" data-lang-key="about_title"></h2>
+                <div class="about-content">
+                    <h3 data-lang-key="about_who_title"></h3>
+                    <p data-lang-key="about_p1"></p>
+                    <p data-lang-key="about_p2"></p>
+
+                    <ul class="about-list">
+                        <li data-lang-key="about_item1"></li>
+                        <li data-lang-key="about_item2"></li>
+                        <li data-lang-key="about_item3"></li>
+                        <li data-lang-key="about_item4"></li>
+                        <li data-lang-key="about_item5"></li>
+                    </ul>
+                </div>
+
+                <div class="about-with-image">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=600&h=400&fit=crop" alt="IT equipment testing">
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&h=400&fit=crop" alt="Quality control">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section style="background-color: var(--bg-light);">
+            <div class="container">
+                <h2 class="section-title" data-lang-key="features_title"></h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">✓</div>
+                        <h3 data-lang-key="feature1_title"></h3>
+                        <p data-lang-key="feature1_desc"></p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💰</div>
+                        <h3 data-lang-key="feature2_title"></h3>
+                        <p data-lang-key="feature2_desc"></p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌱</div>
+                        <h3 data-lang-key="feature3_title"></h3>
+                        <p data-lang-key="feature3_desc"></p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛠️</div>
+                        <h3 data-lang-key="feature4_title"></h3>
+                        <p data-lang-key="feature4_desc"></p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏢</div>
+                        <h3 data-lang-key="feature5_title"></h3>
+                        <p data-lang-key="feature5_desc"></p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3 data-lang-key="feature6_title"></h3>
+                        <p data-lang-key="feature6_desc"></p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3 data-lang-key="feature7_title"></h3>
+                        <p data-lang-key="feature7_desc"></p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3 data-lang-key="feature8_title"></h3>
+                        <p data-lang-key="feature8_desc"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-bg">
+            <div class="container">
+                <h2 class="section-title" data-lang-key="services_title"></h2>
+                <p class="section-subtitle" data-lang-key="services_subtitle"></p>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <h4 data-lang-key="service1_title"></h4>
+                        <p data-lang-key="service1_desc"></p>
+                    </div>
+                    <div class="service-item">
+                        <h4 data-lang-key="service2_title"></h4>
+                        <p data-lang-key="service2_desc"></p>
+                    </div>
+                    <div class="service-item">
+                        <h4 data-lang-key="service3_title"></h4>
+                        <p data-lang-key="service3_desc"></p>
+                    </div>
+                    <div class="service-item">
+                        <h4 data-lang-key="service4_title"></h4>
+                        <p data-lang-key="service4_desc"></p>
+                    </div>
+                </div>
+
+                <div class="services-with-images">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&h=400&fit=crop" alt="Office workspace">
+                    </div>
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="IT consulting">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2 data-lang-key="cta_title"></h2>
+                <p data-lang-key="cta_subtitle"></p>
+                <a href="#" class="btn" onclick="showPage('contact')" data-lang-key="cta_button"></a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <section style="padding-top: 4rem;">
+            <div class="container">
+                <h2 class="section-title" data-lang-key="contact_title"></h2>
+                <div class="contact-intro">
+                    <p data-lang-key="contact_intro"></p>
+                </div>
+                
+                <div class="contact-wrapper">
+                    <!-- Contact Information -->
+                    <div class="contact-info-section">
+                        <h3 data-lang-key="contact_info_title"></h3>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">📍</div>
+                            <div class="info-content">
+                                <h4 data-lang-key="contact_address_label"></h4>
+                                <p>ul. Wiśniowa 36<br>62-052 Komorniki, Polska</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">📞</div>
+                            <div class="info-content">
+                                <h4 data-lang-key="contact_phone_label"></h4>
+                                <p><a href="tel:+48123456789">+48 123 456 789</a></p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">✉️</div>
+                            <div class="info-content">
+                                <h4 data-lang-key="contact_email_label"></h4>
+                                <p><a href="mailto:kontakt@mrit.pl">kontakt@mrit.pl</a></p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">🏢</div>
+                            <div class="info-content">
+                                <h4>NIP</h4>
+                                <p>7822910660</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">🆔</div>
+                            <div class="info-content">
+                                <h4>REGON</h4>
+                                <p>522129280</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">⚖️</div>
+                            <div class="info-content">
+                                <h4>KRS</h4>
+                                <p>0000974003</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">📄</div>
+                            <div class="info-content">
+                                <h4 data-lang-key="contact_company_label"></h4>
+                                <p>MRIT Sp. z o.o.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">🕒</div>
+                            <div class="info-content">
+                                <h4 data-lang-key="contact_hours_label"></h4>
+                                <p data-lang-key="contact_hours_value"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form">
+                        <h3 style="color: var(--primary-green); margin-bottom: 1.5rem;" data-lang-key="contact_form_title"></h3>
+                        <form onsubmit="handleSubmit(event)">
+                            <div class="form-group">
+                                <label for="email" data-lang-key="form_email_label"></label>
+                                <input type="email" id="email" name="email" required data-lang-key="form_email_placeholder" placeholder="">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" data-lang-key="form_message_label"></label>
+                                <textarea id="message" name="message" data-lang-key="form_message_placeholder" placeholder=""></textarea>
+                                <p class="form-note" data-lang-key="form_message_note"></p>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-submit" data-lang-key="form_submit_button"></button>
+                            
+                            <p class="form-note" style="text-align: center; margin-top: 1.5rem;" data-lang-key="form_response_time"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p data-lang-key="footer_text"></p>
+        </div>
+    </footer>
+
+    <script>
+        // Translations
+        const translations = {
+            pl: {
+                nav_home: "Strona główna",
+                nav_contact: "Kontakt",
+                hero_title: "Profesjonalny Sprzęt IT<br>Drugie Życie Technologii",
+                hero_subtitle: "Oferujemy starannie wyselekcjonowany sprzęt poleasingowy — sprawdzone komputery, laptopy i urządzenia All-in-One dla firm i klientów indywidualnych. Jakość, niezawodność i ekologia w jednym.",
+                about_title: "O nas",
+                about_who_title: "Kim jesteśmy?",
+                about_p1: "Jesteśmy firmą IT specjalizującą się w sprzedaży profesjonalnego sprzętu komputerowego pochodzącego z rynku poleasingowego i odnowionego. Każde urządzenie przechodzi szczegółowe testy jakości i kontrolę techniczną, dzięki czemu możemy zagwarantować pełną sprawność i niezawodność.",
+                about_p2: "Nasza oferta obejmuje komputery stacjonarne, laptopy oraz zestawy All-in-One — idealne rozwiązania dla firm, biur oraz klientów indywidualnych poszukujących wysokiej jakości sprzętu w atrakcyjnej cenie.",
+                about_item1: "Dokładna kontrola jakości każdego urządzenia",
+                about_item2: "Profesjonalne testy wydajności i stabilności",
+                about_item3: "Możliwość konfiguracji sprzętu pod indywidualne potrzeby",
+                about_item4: "Doradztwo techniczne i wsparcie po zakupie",
+                about_item5: "Ekologiczne podejście — wydłużamy życie sprzętu IT",
+                features_title: "Dlaczego warto nas wybrać?",
+                feature1_title: "Sprawdzony Sprzęt",
+                feature1_desc: "Każde urządzenie przechodzi wieloetapowe testy jakości i kontrolę techniczną. Gwarantujemy pełną sprawność.",
+                feature2_title: "Atrakcyjna Cena",
+                feature2_desc: "Sprzęt poleasingowy to doskonały stosunek jakości do ceny. Profesjonalne urządzenia w przystępnych cenach.",
+                feature3_title: "Ekologia",
+                feature3_desc: "Wybierając odnowiony sprzęt, przyczyniasz się do ochrony środowiska i zmniejszenia śladu węglowego.",
+                feature4_title: "Wsparcie Techniczne",
+                feature4_desc: "Oferujemy profesjonalne doradztwo, pomoc w wyborze oraz wsparcie techniczne po zakupie.",
+                feature5_title: "Doświadczenie",
+                feature5_desc: "Wieloletnie doświadczenie w branży IT pozwala nam oferować najlepsze rozwiązania dla Twoich potrzeb.",
+                feature6_title: "Szybka Realizacja",
+                feature6_desc: "Sprawna obsługa zamówień i krótki czas realizacji. Twój sprzęt dotrze szybko i bezpiecznie.",
+                feature7_title: "Gwarancja Jakości",
+                feature7_desc: "Wszystkie urządzenia objęte są gwarancją. Kupujesz z pełnym bezpieczeństwem i pewnością.",
+                feature8_title: "Transparentność",
+                feature8_desc: "Jasne informacje o stanie sprzętu, pełna specyfikacja i uczciwe ceny. Bez ukrytych kosztów.",
+                services_title: "Nasza Oferta",
+                services_subtitle: "Kompleksowe rozwiązania IT dostosowane do Twoich potrzeb",
+                service1_title: "Sprzedaż Sprzętu",
+                service1_desc: "Komputery stacjonarne, laptopy i urządzenia All-in-One z rynku poleasingowego — sprawdzone i gotowe do pracy.",
+                service2_title: "Konfiguracja na Zamówienie",
+                service2_desc: "Dostosujemy sprzęt do Twoich wymagań — rozbudowa RAM, dyski SSD, systemy operacyjne i oprogramowanie.",
+                service3_title: "Doradztwo IT",
+                service3_desc: "Pomożemy wybrać odpowiedni sprzęt dla Twojej firmy lub zastosowania domowego. Profesjonalne konsultacje.",
+                service4_title: "Sprzęt dla Firm i Biur",
+                service4_desc: "Kompleksowe wyposażenie biur w sprawdzony sprzęt IT. Oferty hurtowe i rabaty dla firm.",
+                cta_title: "Gotowy na drugie życie Twojego IT?",
+                cta_subtitle: "Skontaktuj się z nami i otrzymaj indywidualną ofertę dopasowaną do Twoich potrzeb",
+                cta_button: "Skontaktuj się z nami",
+                contact_title: "Skontaktuj się z nami",
+                contact_intro: "Jesteś zainteresowany naszą ofertą? Zostaw swój adres e-mail, a skontaktujemy się z Tobą z indywidualną propozycją. Odpowiemy na wszystkie pytania i pomożemy dobrać odpowiedni sprzęt.",
+                contact_info_title: "Dane kontaktowe",
+                contact_address_label: "Adres",
+                contact_phone_label: "Telefon",
+                contact_email_label: "E-mail",
+                contact_hours_label: "Godziny otwarcia",
+                contact_hours_value: "Pon - Pt: 9:00 - 17:00<br>Sobota: 10:00 - 14:00",
+                contact_company_label: "Firma",
+                contact_form_title: "Wyślij wiadomość",
+                form_email_label: "Adres e-mail *",
+                form_email_placeholder: "twoj@email.pl",
+                form_message_label: "Wiadomość (opcjonalnie)",
+                form_message_placeholder: "Napisz kilka słów o swoich potrzebach...",
+                form_message_note: "Jeśli chcesz, możesz dodać krótką informację o tym, czego szukasz",
+                form_submit_button: "Wyślij wiadomość",
+                form_response_time: "Odpowiadamy zazwyczaj w ciągu 24 godzin",
+                footer_text: "© 2024 MRIT. Wszystkie prawa zastrzeżone. | Profesjonalny sprzęt IT poleasingowy"
+            },
+            en: {
+                nav_home: "Home",
+                nav_contact: "Contact",
+                hero_title: "Professional IT Equipment<br>Second Life of Technology",
+                hero_subtitle: "We offer carefully selected refurbished equipment — proven computers, laptops and All-in-One devices for businesses and individual customers. Quality, reliability and ecology in one.",
+                about_title: "About Us",
+                about_who_title: "Who We Are?",
+                about_p1: "We are an IT company specializing in the sale of professional computer equipment from the refurbished and renewed market. Each device undergoes detailed quality testing and technical inspection, so we can guarantee full functionality and reliability.",
+                about_p2: "Our offer includes desktop computers, laptops and All-in-One sets — ideal solutions for companies, offices and individual customers looking for high-quality equipment at an attractive price.",
+                about_item1: "Thorough quality control of each device",
+                about_item2: "Professional performance and stability tests",
+                about_item3: "Possibility of equipment configuration to individual needs",
+                about_item4: "Technical consulting and post-purchase support",
+                about_item5: "Ecological approach — we extend the life of IT equipment",
+                features_title: "Why Choose Us?",
+                feature1_title: "Verified Equipment",
+                feature1_desc: "Each device undergoes multi-stage quality tests and technical inspection. We guarantee full functionality.",
+                feature2_title: "Attractive Price",
+                feature2_desc: "Refurbished equipment offers an excellent quality-to-price ratio. Professional devices at affordable prices.",
+                feature3_title: "Ecology",
+                feature3_desc: "By choosing refurbished equipment, you contribute to environmental protection and carbon footprint reduction.",
+                feature4_title: "Technical Support",
+                feature4_desc: "We offer professional consulting, selection assistance and post-purchase technical support.",
+                feature5_title: "Experience",
+                feature5_desc: "Years of experience in the IT industry allow us to offer the best solutions for your needs.",
+                feature6_title: "Fast Delivery",
+                feature6_desc: "Efficient order processing and short delivery time. Your equipment will arrive quickly and safely.",
+                feature7_title: "Quality Guarantee",
+                feature7_desc: "All devices are covered by warranty. You buy with full security and confidence.",
+                feature8_title: "Transparency",
+                feature8_desc: "Clear information about equipment condition, full specifications and fair prices. No hidden costs.",
+                services_title: "Our Offer",
+                services_subtitle: "Comprehensive IT solutions tailored to your needs",
+                service1_title: "Equipment Sales",
+                service1_desc: "Desktop computers, laptops and All-in-One devices from the refurbished market — tested and ready to work.",
+                service2_title: "Custom Configuration",
+                service2_desc: "We will customize the equipment to your requirements — RAM expansion, SSD drives, operating systems and software.",
+                service3_title: "IT Consulting",
+                service3_desc: "We will help you choose the right equipment for your company or home use. Professional consultations.",
+                service4_title: "Equipment for Companies and Offices",
+                service4_desc: "Complete office equipment with verified IT hardware. Wholesale offers and discounts for companies.",
+                cta_title: "Ready for the Second Life of Your IT?",
+                cta_subtitle: "Contact us and receive a personalized offer tailored to your needs",
+                cta_button: "Contact Us",
+                contact_title: "Contact Us",
+                contact_intro: "Are you interested in our offer? Leave your email address and we will contact you with an individual proposal. We will answer all your questions and help you choose the right equipment.",
+                contact_info_title: "Contact Information",
+                contact_address_label: "Address",
+                contact_phone_label: "Phone",
+                contact_email_label: "E-mail",
+                contact_hours_label: "Opening Hours",
+                contact_hours_value: "Mon - Fri: 9:00 AM - 5:00 PM<br>Saturday: 10:00 AM - 2:00 PM",
+                contact_company_label: "Company",
+                contact_form_title: "Send a Message",
+                form_email_label: "Email Address *",
+                form_email_placeholder: "your@email.com",
+                form_message_label: "Message (optional)",
+                form_message_placeholder: "Write a few words about your needs...",
+                form_message_note: "If you want, you can add brief information about what you're looking for",
+                form_submit_button: "Send Message",
+                form_response_time: "We usually respond within 24 hours",
+                footer_text: "© 2024 MRIT. All rights reserved. | Professional refurbished IT equipment"
+            }
+        };
+
+        let currentLanguage = 'pl';
+
+        // Detect browser language on load
+        function detectLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('en')) {
+                setLanguage('en');
+            } else {
+                setLanguage('pl');
+            }
+        }
+
+        // Set language
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            
+            // Update lang buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Update all text elements
+            document.querySelectorAll('[data-lang-key]').forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                if (translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Page navigation
+        function showPage(pageName) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            document.getElementById(pageName).classList.add('active');
+            
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.page === pageName) {
+                    link.classList.add('active');
+                }
+            });
+            
+            document.getElementById('navRight').classList.remove('active');
+            window.scrollTo(0, 0);
+            
+            return false;
+        }
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.getElementById('navRight').classList.toggle('active');
+        }
+
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            
+            const message = currentLanguage === 'pl' 
+                ? `Dziękujemy za wiadomość! Skontaktujemy się wkrótce na adres: ${email}`
+                : `Thank you for your message! We will contact you soon at: ${email}`;
+            
+            alert(message);
+            event.target.reset();
+            
+            return false;
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navRight = document.getElementById('navRight');
+            
+            if (!nav.contains(event.target) && navRight.classList.contains('active')) {
+                navRight.classList.remove('active');
+            }
+        });
+
+        // Initialize language on page load
+        window.addEventListener('DOMContentLoaded', detectLanguage);
+    </script>
+</body>
+</html>
