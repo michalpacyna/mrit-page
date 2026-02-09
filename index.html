@@ -560,6 +560,84 @@
             }
         }
 
+        /* Buyback/Rental specific styles */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .highlight-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        .price-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .price-card {
+            background-color: var(--bg-white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--border-color);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(45, 106, 79, 0.1);
+            border-color: var(--light-green);
+        }
+
+        .price-card h4 {
+            color: var(--primary-green);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .price-card .price {
+            font-size: 2rem;
+            color: var(--light-green);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .price-card ul {
+            list-style: none;
+            text-align: left;
+            margin-top: 1.5rem;
+        }
+
+        .price-card ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-gray);
+        }
+
+        .price-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--light-green);
+            font-weight: bold;
+        }
+
         /* Responsive */
         @media (max-width: 968px) {
             .contact-wrapper {
@@ -650,6 +728,8 @@
             <div class="nav-right" id="navRight">
                 <ul class="nav-links">
                     <li><a href="#" class="active" data-page="home" onclick="showPage('home')" data-lang-key="nav_home"></a></li>
+                    <li><a href="#" data-page="buyback" onclick="showPage('buyback')" data-lang-key="nav_buyback"></a></li>
+                    <li><a href="#" data-page="rental" onclick="showPage('rental')" data-lang-key="nav_rental"></a></li>
                     <li><a href="#" data-page="contact" onclick="showPage('contact')" data-lang-key="nav_contact"></a></li>
                 </ul>
                 <div class="lang-switcher">
@@ -801,6 +881,162 @@
         </section>
     </div>
 
+    <!-- Buyback Page -->
+    <div id="buyback" class="page">
+        <section class="hero" style="padding: 3rem 2rem;">
+            <div class="container">
+                <h1 class="section-title" data-lang-key="buyback_title"></h1>
+                <p class="section-subtitle" data-lang-key="buyback_subtitle"></p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="about-content">
+                    <h3 data-lang-key="buyback_what_title"></h3>
+                    <p data-lang-key="buyback_p1"></p>
+                    <p data-lang-key="buyback_p2"></p>
+
+                    <ul class="about-list">
+                        <li data-lang-key="buyback_item1"></li>
+                        <li data-lang-key="buyback_item2"></li>
+                        <li data-lang-key="buyback_item3"></li>
+                        <li data-lang-key="buyback_item4"></li>
+                        <li data-lang-key="buyback_item5"></li>
+                    </ul>
+                </div>
+
+                <div class="about-with-image">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1588508065123-287b28e013da?w=600&h=400&fit=crop" alt="Computer buyback">
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop" alt="IT equipment evaluation">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background-color: var(--bg-light);">
+            <div class="container">
+                <h2 class="section-title" data-lang-key="buyback_process_title"></h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📞</div>
+                        <h3 data-lang-key="buyback_step1_title"></h3>
+                        <p data-lang-key="buyback_step1_desc"></p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h3 data-lang-key="buyback_step2_title"></h3>
+                        <p data-lang-key="buyback_step2_desc"></p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💵</div>
+                        <h3 data-lang-key="buyback_step3_title"></h3>
+                        <p data-lang-key="buyback_step3_desc"></p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🚚</div>
+                        <h3 data-lang-key="buyback_step4_title"></h3>
+                        <p data-lang-key="buyback_step4_desc"></p>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h3 data-lang-key="buyback_highlight_title"></h3>
+                    <p data-lang-key="buyback_highlight_text"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2 data-lang-key="buyback_cta_title"></h2>
+                <p data-lang-key="buyback_cta_subtitle"></p>
+                <a href="#" class="btn" onclick="showPage('contact')" data-lang-key="cta_button"></a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Rental Page -->
+    <div id="rental" class="page">
+        <section class="hero" style="padding: 3rem 2rem;">
+            <div class="container">
+                <h1 class="section-title" data-lang-key="rental_title"></h1>
+                <p class="section-subtitle" data-lang-key="rental_subtitle"></p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="about-content">
+                    <h3 data-lang-key="rental_what_title"></h3>
+                    <p data-lang-key="rental_p1"></p>
+                    <p data-lang-key="rental_p2"></p>
+
+                    <ul class="about-list">
+                        <li data-lang-key="rental_item1"></li>
+                        <li data-lang-key="rental_item2"></li>
+                        <li data-lang-key="rental_item3"></li>
+                        <li data-lang-key="rental_item4"></li>
+                        <li data-lang-key="rental_item5"></li>
+                    </ul>
+                </div>
+
+                <div class="about-with-image">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop" alt="Laptop rental">
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&h=400&fit=crop" alt="Desktop rental">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background-color: var(--bg-light);">
+            <div class="container">
+                <h2 class="section-title" data-lang-key="rental_benefits_title"></h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">💼</div>
+                        <h3 data-lang-key="rental_benefit1_title"></h3>
+                        <p data-lang-key="rental_benefit1_desc"></p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⏱️</div>
+                        <h3 data-lang-key="rental_benefit2_title"></h3>
+                        <p data-lang-key="rental_benefit2_desc"></p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔧</div>
+                        <h3 data-lang-key="rental_benefit3_title"></h3>
+                        <p data-lang-key="rental_benefit3_desc"></p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3 data-lang-key="rental_benefit4_title"></h3>
+                        <p data-lang-key="rental_benefit4_desc"></p>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h3 data-lang-key="rental_highlight_title"></h3>
+                    <p data-lang-key="rental_highlight_text"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2 data-lang-key="rental_cta_title"></h2>
+                <p data-lang-key="rental_cta_subtitle"></p>
+                <a href="#" class="btn" onclick="showPage('contact')" data-lang-key="cta_button"></a>
+            </div>
+        </section>
+    </div>
+
     <!-- Contact Page -->
     <div id="contact" class="page">
         <section style="padding-top: 4rem;">
@@ -901,6 +1137,8 @@
         const translations = {
             pl: {
                 nav_home: "Strona główna",
+                nav_buyback: "Odkup",
+                nav_rental: "Wynajem",
                 nav_contact: "Kontakt",
                 hero_title: "Profesjonalny Sprzęt IT<br>Drugie Życie Technologii",
                 hero_subtitle: "Oferujemy starannie wyselekcjonowany sprzęt poleasingowy — sprawdzone komputery, laptopy i urządzenia All-in-One dla firm i klientów indywidualnych. Jakość, niezawodność i ekologia w jednym.",
@@ -940,6 +1178,57 @@
                 service3_desc: "Pomożemy wybrać odpowiedni sprzęt dla Twojej firmy lub zastosowania domowego. Profesjonalne konsultacje.",
                 service4_title: "Sprzęt dla Firm i Biur",
                 service4_desc: "Kompleksowe wyposażenie biur w sprawdzony sprzęt IT. Oferty hurtowe i rabaty dla firm.",
+                
+                // Buyback translations
+                buyback_title: "Odkup Sprzętu IT",
+                buyback_subtitle: "Skupujemy profesjonalny sprzęt komputerowy w dowolnej ilości i stanie",
+                buyback_what_title: "Co skupujemy?",
+                buyback_p1: "Zajmujemy się profesjonalnym skupem sprzętu IT pochodzącego z firm, biur oraz od klientów indywidualnych. Oferujemy uczciwe ceny i kompleksową obsługę — od wyceny, przez odbiór sprzętu, aż po bezpieczne kasowanie danych.",
+                buyback_p2: "Niezależnie od tego, czy posiadasz pojedyncze urządzenie, czy całe wyposażenie biura — jesteśmy zainteresowani odkupem. Skupujemy sprzęt sprawny, wymagający naprawy oraz uszkodzony.",
+                buyback_item1: "Laptopy — wszystkie marki i modele",
+                buyback_item2: "Komputery stacjonarne (PC, workstation)",
+                buyback_item3: "Urządzenia All-in-One",
+                buyback_item4: "Sprzęt w dowolnym stanie technicznym",
+                buyback_item5: "Skupujemy pojedyncze sztuki oraz duże ilości hurtowe",
+                buyback_process_title: "Jak przebiega odkup?",
+                buyback_step1_title: "Kontakt",
+                buyback_step1_desc: "Skontaktuj się z nami telefonicznie lub mailowo. Przedstaw informacje o sprzęcie, który chcesz sprzedać.",
+                buyback_step2_title: "Wycena",
+                buyback_step2_desc: "Na podstawie przekazanych informacji przygotujemy wstępną wycenę. W razie potrzeby umówimy spotkanie lub wizytę.",
+                buyback_step3_title: "Oferta",
+                buyback_step3_desc: "Przedstawimy konkretną ofertę odkupu. Ceny są uczciwe i rynkowe — gwarantujemy transparentność.",
+                buyback_step4_title: "Odbiór i Płatność",
+                buyback_step4_desc: "Po akceptacji oferty odbieramy sprzęt osobiście lub organizujemy transport. Płatność następuje natychmiast.",
+                buyback_highlight_title: "Bezpieczne kasowanie danych",
+                buyback_highlight_text: "Gwarantujemy profesjonalne i bezpieczne usunięcie wszystkich danych z odkupionych urządzeń zgodnie z obowiązującymi standardami.",
+                buyback_cta_title: "Chcesz sprzedać swój sprzęt IT?",
+                buyback_cta_subtitle: "Skontaktuj się z nami — przygotujemy indywidualną ofertę odkupu",
+                
+                // Rental translations
+                rental_title: "Wynajem Sprzętu IT",
+                rental_subtitle: "Profesjonalny sprzęt komputerowy w wynajem — na dowolny okres",
+                rental_what_title: "Co oferujemy w wynajmie?",
+                rental_p1: "Świadczymy usługi wynajmu profesjonalnego sprzętu IT dla firm, projektów tymczasowych, eventów oraz klientów indywidualnych. Nasza oferta obejmuje laptopy i komputery stacjonarne dostępne na krótki lub długi okres — od kilku dni po wiele miesięcy.",
+                rental_p2: "Wynajem sprzętu to idealne rozwiązanie, gdy potrzebujesz dodatkowych stanowisk komputerowych na czas szkolenia, konferencji, rozbudowy zespołu, realizacji projektu czy tymczasowej awarii. Zapewniamy sprawny sprzęt, wsparcie techniczne oraz elastyczne warunki.",
+                rental_item1: "Laptopy biznesowe — różne konfiguracje",
+                rental_item2: "Komputery stacjonarne do biura",
+                rental_item3: "Wynajem krótko- i długoterminowy",
+                rental_item4: "Wsparcie techniczne w trakcie wynajmu",
+                rental_item5: "Możliwość rozbudowy i modyfikacji konfiguracji",
+                rental_benefits_title: "Dlaczego warto wynająć sprzęt?",
+                rental_benefit1_title: "Projekty Tymczasowe",
+                rental_benefit1_desc: "Idealne rozwiązanie na czas konferencji, szkoleń, eventów lub realizacji projektów krótkoterminowych.",
+                rental_benefit2_title: "Elastyczność",
+                rental_benefit2_desc: "Wynajmij sprzęt na dowolny okres — od kilku dni po długoterminową współpracę. Bez długoterminowych zobowiązań.",
+                rental_benefit3_title: "Bez Inwestycji",
+                rental_benefit3_desc: "Uniknij kosztów zakupu i utrzymania sprzętu. Wynajem to niższe koszty i większa kontrola budżetu.",
+                rental_benefit4_title: "Skalowalność",
+                rental_benefit4_desc: "Dostosuj ilość sprzętu do bieżących potrzeb — zwiększ lub zmniejsz liczbę urządzeń w zależności od sytuacji.",
+                rental_highlight_title: "Wsparcie techniczne w cenie",
+                rental_highlight_text: "Do każdego wynajmu dołączamy wsparcie techniczne — w razie problemów jesteśmy do Twojej dyspozycji.",
+                rental_cta_title: "Potrzebujesz sprzętu na określony czas?",
+                rental_cta_subtitle: "Skontaktuj się z nami i poznaj naszą ofertę wynajmu",
+                
                 cta_title: "Gotowy na drugie życie Twojego IT?",
                 cta_subtitle: "Skontaktuj się z nami i otrzymaj indywidualną ofertę dopasowaną do Twoich potrzeb",
                 cta_button: "Skontaktuj się z nami",
@@ -949,9 +1238,6 @@
                 contact_address_label: "Adres",
                 contact_phone_label: "Telefon",
                 contact_email_label: "E-mail",
-                contact_hours_label: "Godziny otwarcia",
-                contact_hours_value: "Pon - Pt: 9:00 - 17:00<br>Sobota: 10:00 - 14:00",
-                contact_company_label: "Firma",
                 contact_form_title: "Wyślij wiadomość",
                 form_email_label: "Adres e-mail *",
                 form_email_placeholder: "twoj@email.pl",
@@ -964,6 +1250,8 @@
             },
             en: {
                 nav_home: "Home",
+                nav_buyback: "Buyback",
+                nav_rental: "Rental",
                 nav_contact: "Contact",
                 hero_title: "Professional IT Equipment<br>Second Life of Technology",
                 hero_subtitle: "We offer carefully selected refurbished equipment — proven computers, laptops and All-in-One devices for businesses and individual customers. Quality, reliability and ecology in one.",
@@ -1003,6 +1291,57 @@
                 service3_desc: "We will help you choose the right equipment for your company or home use. Professional consultations.",
                 service4_title: "Equipment for Companies and Offices",
                 service4_desc: "Complete office equipment with verified IT hardware. Wholesale offers and discounts for companies.",
+                
+                // Buyback translations
+                buyback_title: "IT Equipment Buyback",
+                buyback_subtitle: "We buy professional computer equipment in any quantity and condition",
+                buyback_what_title: "What do we buy?",
+                buyback_p1: "We specialize in professional IT equipment buyback from companies, offices and individual customers. We offer fair prices and comprehensive service — from valuation, through equipment pickup, to secure data erasure.",
+                buyback_p2: "Whether you have a single device or entire office equipment — we are interested in buying it. We buy working equipment, equipment requiring repair, and damaged equipment.",
+                buyback_item1: "Laptops — all brands and models",
+                buyback_item2: "Desktop computers (PC, workstation)",
+                buyback_item3: "All-in-One devices",
+                buyback_item4: "Equipment in any technical condition",
+                buyback_item5: "We buy single units and large wholesale quantities",
+                buyback_process_title: "How does the buyback work?",
+                buyback_step1_title: "Contact",
+                buyback_step1_desc: "Contact us by phone or email. Provide information about the equipment you want to sell.",
+                buyback_step2_title: "Valuation",
+                buyback_step2_desc: "Based on the information provided, we will prepare a preliminary valuation. If needed, we will arrange a meeting or visit.",
+                buyback_step3_title: "Offer",
+                buyback_step3_desc: "We will present a specific buyback offer. Prices are fair and market-based — we guarantee transparency.",
+                buyback_step4_title: "Pickup and Payment",
+                buyback_step4_desc: "After accepting the offer, we pick up the equipment personally or organize transport. Payment is made immediately.",
+                buyback_highlight_title: "Secure data erasure",
+                buyback_highlight_text: "We guarantee professional and secure deletion of all data from purchased devices in accordance with applicable standards.",
+                buyback_cta_title: "Want to sell your IT equipment?",
+                buyback_cta_subtitle: "Contact us — we will prepare an individual buyback offer",
+                
+                // Rental translations
+                rental_title: "IT Equipment Rental",
+                rental_subtitle: "Professional computer equipment for rent — for any period",
+                rental_what_title: "What do we offer for rent?",
+                rental_p1: "We provide professional IT equipment rental services for companies, temporary projects, events and individual customers. Our offer includes laptops and desktop computers available for short or long periods — from a few days to many months.",
+                rental_p2: "Equipment rental is an ideal solution when you need additional computer workstations for training, conferences, team expansion, project implementation or temporary failure. We provide efficient equipment, technical support and flexible conditions.",
+                rental_item1: "Business laptops — various configurations",
+                rental_item2: "Desktop computers for office",
+                rental_item3: "Short and long-term rental",
+                rental_item4: "Technical support during rental",
+                rental_item5: "Possibility to expand and modify configuration",
+                rental_benefits_title: "Why rent equipment?",
+                rental_benefit1_title: "Temporary Projects",
+                rental_benefit1_desc: "Ideal solution for conferences, training, events or short-term project implementation.",
+                rental_benefit2_title: "Flexibility",
+                rental_benefit2_desc: "Rent equipment for any period — from a few days to long-term cooperation. No long-term commitments.",
+                rental_benefit3_title: "No Investment",
+                rental_benefit3_desc: "Avoid the costs of purchasing and maintaining equipment. Rental means lower costs and better budget control.",
+                rental_benefit4_title: "Scalability",
+                rental_benefit4_desc: "Adjust the amount of equipment to current needs — increase or decrease the number of devices depending on the situation.",
+                rental_highlight_title: "Technical support included",
+                rental_highlight_text: "Every rental includes technical support — in case of problems, we are at your disposal.",
+                rental_cta_title: "Need equipment for a specific time?",
+                rental_cta_subtitle: "Contact us and learn about our rental offer",
+                
                 cta_title: "Ready for the Second Life of Your IT?",
                 cta_subtitle: "Contact us and receive a personalized offer tailored to your needs",
                 cta_button: "Contact Us",
@@ -1012,9 +1351,6 @@
                 contact_address_label: "Address",
                 contact_phone_label: "Phone",
                 contact_email_label: "E-mail",
-                contact_hours_label: "Opening Hours",
-                contact_hours_value: "Mon - Fri: 9:00 AM - 5:00 PM<br>Saturday: 10:00 AM - 2:00 PM",
-                contact_company_label: "Company",
                 contact_form_title: "Send a Message",
                 form_email_label: "Email Address *",
                 form_email_placeholder: "your@email.com",
@@ -1091,21 +1427,6 @@
         // Mobile menu toggle
         function toggleMenu() {
             document.getElementById('navRight').classList.toggle('active');
-        }
-
-        // Form submission
-        function handleSubmit(event) {
-            event.preventDefault();
-            const email = document.getElementById('email').value;
-            
-            const message = currentLanguage === 'pl' 
-                ? `Dziękujemy za wiadomość! Skontaktujemy się wkrótce na adres: ${email}`
-                : `Thank you for your message! We will contact you soon at: ${email}`;
-            
-            alert(message);
-            event.target.reset();
-            
-            return false;
         }
 
         // Close mobile menu when clicking outside
